@@ -9,7 +9,7 @@ export default function Nav() {
         <img class="logo" src={logo} alt="Logo" />
         <img src={avatar} alt="Avatar" class="avatar" />
       </div>
-    </nav>
+    </nav>    
   );
 }
 

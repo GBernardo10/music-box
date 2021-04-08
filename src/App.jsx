@@ -1,8 +1,11 @@
-import Nav from "./components/Nav"; // Importando o componente Nav
+import Music from "./pages/Music";
+import Inicio from "./pages/Inicio";
 
 // Exporta e cria o componente App
 export default function App() {
-  return <Nav />;
+  return (
+    <NavBar />
+  <Inicio />);
 }
 
 // Exporta o componente App
