@@ -10,16 +10,16 @@ export default function Music() {
       {/* CONTAINER */}
 
       <NavBar />
-      <div class="container">
-        <div class="filter">
+      <div className="container">
+        <div className="filter">
           <Button>Adicionar</Button>
         </div>
       </div>
 
       {/* CARDS */}
 
-      <div class="container">
-        <div class="music-boxes">
+      <div className="container">
+        <div className="music-boxes">
           <MusicCard nome ="Sinfonias de Bethoven" genero="classica" lancamento="1800"/>
           <MusicCard nome ="PayPal" genero="trap" lancamento="2021"/>
           <MusicCard nome ="Batom de cereja" genero=""/>

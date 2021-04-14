@@ -5,9 +5,9 @@ import avatar from "../assets/img/avatar.png";
 export default function Nav() {
   return (
     <nav>
-      <div class="container">
-        <img class="logo" src={logo} alt="Logo" />
-        <img src={avatar} alt="Avatar" class="avatar" />
+      <div className="container">
+        <img className="logo" src={logo} alt="Logo" />
+        <img src={avatar} alt="Avatar" className="avatar" />
       </div>
     </nav>    
   );

@@ -1,20 +1,21 @@
-import NavBar from "../components/Nav"
+import indexImg from '../assets/img/index-img.png'
 
-export default function Inicio(){
+export default function Inicio() {
   return (
-    <NavBar />
-    <div class="container index">
-    <div class="index-content">
-        <div class="box-text-index">
-            <div class="info-index">
-                <h1>Faça parte do nosso dicionário de música </h1>
-                <h3>Contribua e fique por dentro das novidades  </h3>
+    <>
+      <div className="container index">
+        <div className="index-content">
+          <div className="box-text-index">
+            <div className="info-index">
+              <h1>Faça parte do nosso dicionário de música </h1>
+              <h3>Contribua e fique por dentro das novidades </h3>
             </div>
-            <div class="img-index"></div>
-            <button class="btn-green">Conhecer agora</button>
-        </div>     
-        <img src="../images/index-img.png" alt="" class="index-img">
-    </div>  
-</div>
-  )
+            <div className="img-index"></div>
+            <button className="btn-green">Conhecer agora</button>
+          </div>
+          <img src={indexImg} alt="" className="index-img" />
+        </div>
+      </div>
+    </>
+  );
 }

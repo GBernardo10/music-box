@@ -5,36 +5,36 @@ import starIcon from "../assets/img/star-solid.png";
 export default function MusicCard({ nome, genero, lancamento }) {
 //export default function MusicCard(props) {  // Forma convencional
   return (
-    <div class="music-box">
-      <div class="img-music"></div>
-      <div class="music-data">
-        <div class="icons">
-          <img src={editIcon} alt="icone editar" class="edit" />
-          <img src={deleteIcon} alt="icone deletar" class="delete" />
-          <img src={starIcon} alt="icone estrela" class="stars" />
+    <div className="music-box">
+      <div className="img-music"></div>
+      <div className="music-data">
+        <div className="icons">
+          <img src={editIcon} alt="icone editar" className="edit" />
+          <img src={deleteIcon} alt="icone deletar" className="delete" />
+          <img src={starIcon} alt="icone estrela" className="stars" />
         </div>
 
-        <div class="name">
+        <div className="name">
           <label>
             {" "}
             Nome:
-            <input class="input-music" type="text" value={nome} />
+            <input className="input-music" type="text" value={nome} />
           </label>
         </div>
 
-        <div class="genre">
+        <div className="genre">
           <label>
             {" "}
             Genêro:
-            <input class="input-music" type="text" value={genero} />
+            <input className="input-music" type="text" value={genero} />
           </label>
         </div>
 
-        <div class="release">
+        <div className="release">
           <label>
             {" "}
             Lançamento:
-            <input class="input-music" type="text" value={lancamento} />
+            <input className="input-music" type="text" value={lancamento} />
           </label>
         </div>
       </div>
