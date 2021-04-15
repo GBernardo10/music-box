@@ -1,6 +1,5 @@
 // import { Fragment } from "react"; // Desestruturação
 // import React from "react"; // Importando o React
-import NavBar from "../components/Nav";
 import Button from "../components/Button";
 import MusicCard from "../components/MusicCard";
 
@@ -9,7 +8,6 @@ export default function Music() {
     <>
       {/* CONTAINER */}
 
-      <NavBar />
       <div className="container">
         <div className="filter">
           <Button>Adicionar</Button>

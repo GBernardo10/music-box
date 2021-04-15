@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import notFound from '../assets/img/not-found.png'
 
 export default function NotFound() {
@@ -9,8 +10,10 @@ export default function NotFound() {
             <h1>Oops!</h1>
             <h3>A página que você procura não foi encontrada.</h3>
           </div>
-          <div className="img-index"></div>
-          <button className="btn-green">Voltar</button>
+          <div className="img-index"></div>          
+          <Link to="/">
+            <button className="btn-green">Voltar</button>          
+          </Link>
         </div>
         <img src={notFound} alt="" className="index-img" />
       </div>
