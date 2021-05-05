@@ -18,15 +18,19 @@ export default function Music() {
 
       <div className="container">
         <div className="music-boxes">
-          <MusicCard nome ="Sinfonias de Bethoven" genero="classica" lancamento="1800"/>
-          <MusicCard nome ="PayPal" genero="trap" lancamento="2021"/>
-          <MusicCard nome ="Batom de cereja" genero=""/>
-          <MusicCard nome ="Até que durou" genero="Péricles" lancamento="2018"/>
-          
-          <MusicCard nome ="Stay With me City" genero="Pop" lancamento="1980" />
-          <MusicCard nome ="Riot" genero="Rock" lancamento="2018"/>
-          <MusicCard nome ="A lua me traiu" genero="Axê" lancamento="2004"/>
-          <MusicCard nome ="Gatinha comunista" genero="rock" lancamento="2015"/>
+          <MusicCard
+            nome="Sinfonias de Bethoven"
+            genero="classica"
+            lancamento="1800"
+          />
+          <MusicCard nome="PayPal" genero="trap" lancamento="2021" />
+          <MusicCard nome="Batom de cereja" genero="" />
+          <MusicCard nome="Até que durou" genero="Péricles" lancamento="2018" />
+
+          <MusicCard nome="Stay With me City" genero="Pop" lancamento="1980" />
+          <MusicCard nome="Riot" genero="Rock" lancamento="2018" />
+          <MusicCard nome="A lua me traiu" genero="Axê" lancamento="2004" />
+          <MusicCard nome="Gatinha comunista" genero="rock" lancamento="2015" />
         </div>
       </div>
     </>

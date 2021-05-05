@@ -4,7 +4,8 @@ import AddMusic from "./pages/AddMusic";
 import NotFound from "./pages/NotFound";
 import Rotas from "./routes/routes";
 
-// Exporta e cria o componente App
+// Cria o componente App e exporta, isso quer dizer, deixar essa funcao 
+// publica para outros componentes poderem, se necessario, invocar a funcao App
 export default function App() {
   return (
     <>
