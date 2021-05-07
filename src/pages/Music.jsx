@@ -1,9 +1,22 @@
 // import { Fragment } from "react"; // Desestruturação
 // import React from "react"; // Importando o React
+import { useEffect, useState } from "react";
 import Button from "../components/Button";
 import MusicCard from "../components/MusicCard";
+import api from "../services/api";
 
 export default function Music() {
+  const [listaMusica, addMusicaNaLista] = useState([]);
+
+  useEffect(() => {
+    // async/await
+    async function getMusics() {
+      const resposta = await api.get("/");
+      addMusicaNaLista(resposta.data);
+    }
+    getMusics();
+  }, []);
+
   return (
     <>
       {/* CONTAINER */}
@@ -18,7 +31,14 @@ export default function Music() {
 
       <div className="container">
         <div className="music-boxes">
-          <MusicCard
+          {listaMusica.map((musica) => (
+            <MusicCard
+              nome={musica.nome}
+              genero={musica.genero}
+              lancamento={musica.ano}
+            />
+          ))}
+          {/* <MusicCard
             nome="Sinfonias de Bethoven"
             genero="classica"
             lancamento="1800"
@@ -30,7 +50,7 @@ export default function Music() {
           <MusicCard nome="Stay With me City" genero="Pop" lancamento="1980" />
           <MusicCard nome="Riot" genero="Rock" lancamento="2018" />
           <MusicCard nome="A lua me traiu" genero="Axê" lancamento="2004" />
-          <MusicCard nome="Gatinha comunista" genero="rock" lancamento="2015" />
+          <MusicCard nome="Gatinha comunista" genero="rock" lancamento="2015" /> */}
         </div>
       </div>
     </>
