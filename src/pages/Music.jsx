@@ -1,6 +1,7 @@
 // import { Fragment } from "react"; // Desestruturação
 // import React from "react"; // Importando o React
 import { useEffect, useState } from "react";
+import { useHistory } from "react-router";
 import Button from "../components/Button";
 import MusicCard from "../components/MusicCard";
 import api from "../services/api";
