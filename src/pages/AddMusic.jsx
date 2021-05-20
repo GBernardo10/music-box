@@ -1,5 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router";
 import addMusic from "../assets/img/add-music-img.png";
+import Button from "../components/Button";
 import api from "../services/api";
 
 export default function AddMusic() {
@@ -9,6 +11,20 @@ export default function AddMusic() {
     genero: "Acao",
     url: "meu_site.com",
   });
+
+  const { id } = useParams();
+
+  useEffect(() => {
+    async function getMusicById() {
+      if (id != null && id != undefined) {
+        console.log("music");
+        const resposta = await api.get(`/${id}`);
+        setMusic(resposta.data);
+      }
+    }
+    getMusicById();
+    console.log(music);
+  }, []);
 
   function handleInput(eventoDoOnChange) {
     const { name, value } = eventoDoOnChange.target;
@@ -29,22 +45,31 @@ export default function AddMusic() {
       alert("Xiiiiii");
     }
   }
+  function editar() {
+    console.log("EDITEI", music);
+  }
 
   return (
     <div className="container">
       <div className="add-music">
         <form>
           {/* <form onSubmit={cadastrar}> */}
-          <h1>Adicionar</h1>
+          <h1>{id ? "Editar" : "Adicionar"}</h1>
           <div>
             <label>
               Nome:
-              <input type="text" name="nome" onChange={handleInput} />
+              <input
+                type="text"
+                name="nome"
+                onChange={handleInput}
+                value={music.nome}
+              />
             </label>
           </div>
           <div>
             <label>
-              Genêro: <input type="text" name="genero" onChange={handleInput} />
+              Genero:
+              <input type="text" name="genero" onChange={handleInput} />
             </label>
           </div>
           <div>
@@ -57,9 +82,9 @@ export default function AddMusic() {
             <input type="text" name="url" onChange={handleInput} />
           </div>
           <div>
-            <button type="button" className="btn-green" onClick={cadastrar}>
-              Enviar
-            </button>
+            <Button type="button" onClick={id ? editar : cadastrar}>
+              {id ? "Editar" : "Enviar"}
+            </Button>
           </div>
         </form>
         <img src={addMusic} alt="addMusic" />

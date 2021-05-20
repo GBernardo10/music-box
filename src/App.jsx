@@ -1,4 +1,4 @@
-import NavBar from "./components/Nav";
+// import NavBar from "./components/Nav";
 import Inicio from "./pages/Inicio";
 import AddMusic from "./pages/AddMusic";
 import NotFound from "./pages/NotFound";
@@ -9,7 +9,7 @@ import Rotas from "./routes/routes";
 export default function App() {
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <Rotas />
     </>
   );

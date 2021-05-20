@@ -1,4 +1,5 @@
-import indexImg from '../assets/img/index-img.png'
+import { Link } from "react-router-dom";
+import indexImg from "../assets/img/index-img.png";
 
 export default function Inicio() {
   return (
@@ -11,7 +12,9 @@ export default function Inicio() {
               <h3>Contribua e fique por dentro das novidades </h3>
             </div>
             <div className="img-index"></div>
-            <button className="btn-green">Conhecer agora</button>
+            <Link to="/list-musics">
+              <button className="btn-green">Conhecer agora</button>
+            </Link>
           </div>
           <img src={indexImg} alt="" className="index-img" />
         </div>

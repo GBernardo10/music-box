@@ -2,6 +2,7 @@
 // import React from "react"; // Importando o React
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router";
+import { Link } from "react-router-dom";
 import Button from "../components/Button";
 import MusicCard from "../components/MusicCard";
 import api from "../services/api";
@@ -24,7 +25,9 @@ export default function Music() {
 
       <div className="container">
         <div className="filter">
-          <Button>Adicionar</Button>
+          <Link to="/add-music">
+            <Button posicao="right">Adicionar</Button>
+          </Link>
         </div>
       </div>
 
@@ -34,6 +37,7 @@ export default function Music() {
         <div className="music-boxes">
           {listaMusica.map((musica) => (
             <MusicCard
+              id={musica.id}
               nome={musica.nome}
               genero={musica.genero}
               lancamento={musica.ano}

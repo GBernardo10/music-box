@@ -2,6 +2,10 @@
 //   return <button className="btn-green right">{props.children}</button>;
 // }
 
-export default function Button({ children }) {
-  return <button className="btn-green right">{children}</button>;
+export default function Button({ children, onClick, type, posicao }) {
+  return (
+    <button type={type} onClick={onClick} className={`btn-green ${posicao}`}>
+      {children}
+    </button>
+  );
 }
