@@ -10,6 +10,10 @@ import api from "../services/api";
 export default function Music() {
   const [listaMusica, addMusicaNaLista] = useState([]);
 
+  // meu_id = 5;
+  // listaAntiga = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  // novaLista = [1, 2, 3, 4, 6, 7, 8, 9];
+
   useEffect(() => {
     // async/await
     async function getMusics() {
@@ -18,6 +22,27 @@ export default function Music() {
     }
     getMusics();
   }, []);
+
+  async function deleteMusicById(id) {
+    console.log("DELETEI O ID", id);
+    const resposta = await api.delete(`/${id}`);
+    if (resposta.status === 200) {
+      const novaLista = listaMusica.filter((musica) => musica.id != id);
+      
+      // const novaLista = [];
+      
+      // for (let i = 0; i < listaMusica.length; i++) {
+      //   if (id != listaMusica[i].id) {
+      //     novaLista.push(listaMusica[i]);
+      //   }
+      // }
+      
+      addMusicaNaLista(novaLista);
+      alert("DELETOU COM SUCESSO")
+    } else {
+      alert("XIIIIIIIII");
+    }
+  }
 
   return (
     <>
@@ -41,6 +66,7 @@ export default function Music() {
               nome={musica.nome}
               genero={musica.genero}
               lancamento={musica.ano}
+              onClick={() => deleteMusicById(musica.id)}
             />
           ))}
           {/* <MusicCard

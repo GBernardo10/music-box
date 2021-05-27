@@ -6,10 +6,10 @@ import api from "../services/api";
 
 export default function AddMusic() {
   const [music, setMusic] = useState({
-    nome: "Jesus",
-    ano: "2021",
-    genero: "Acao",
-    url: "meu_site.com",
+    nome: "",
+    ano: "",
+    genero: "",
+    url: "",
   });
 
   const { id } = useParams();
@@ -17,13 +17,11 @@ export default function AddMusic() {
   useEffect(() => {
     async function getMusicById() {
       if (id != null && id != undefined) {
-        console.log("music");
-        const resposta = await api.get(`/${id}`);
-        setMusic(resposta.data);
+        const { data } = await api.get(`/${id}`);
+        setMusic(data);
       }
     }
     getMusicById();
-    console.log(music);
   }, []);
 
   function handleInput(eventoDoOnChange) {
@@ -36,24 +34,34 @@ export default function AddMusic() {
   }
 
   async function cadastrar() {
-    const resposta = await api.post("/", {
+    const resposta = await api.get("/", {
       ...music,
     });
+    
     if (resposta.status === 201) {
       alert("Cadastrou a musica");
     } else {
       alert("Xiiiiii");
     }
+
   }
-  function editar() {
-    console.log("EDITEI", music);
+  async function editar() {
+    const resposta = await api.put(`/${id}`, {
+      ...music,
+    });
+    
+    if (resposta.status === 200) {
+      alert("Musica editada com sucesso");
+    } else {
+      alert("Erro ao editar a musica");
+    }
+
   }
 
   return (
     <div className="container">
       <div className="add-music">
         <form>
-          {/* <form onSubmit={cadastrar}> */}
           <h1>{id ? "Editar" : "Adicionar"}</h1>
           <div>
             <label>
@@ -69,17 +77,32 @@ export default function AddMusic() {
           <div>
             <label>
               Genero:
-              <input type="text" name="genero" onChange={handleInput} />
+              <input
+                type="text"
+                name="genero"
+                onChange={handleInput}
+                value={music.genero}
+              />
             </label>
           </div>
           <div>
             <label>Ano Lançamento:</label>
-            <input type="text" name="ano" onChange={handleInput} />
+            <input
+              type="text"
+              name="ano"
+              onChange={handleInput}
+              value={music.ano}
+            />
           </div>
 
           <div>
             <label> Imagem (url):</label>
-            <input type="text" name="url" onChange={handleInput} />
+            <input
+              type="text"
+              name="url"
+              onChange={handleInput}
+              value={music.url}
+            />
           </div>
           <div>
             <Button type="button" onClick={id ? editar : cadastrar}>
